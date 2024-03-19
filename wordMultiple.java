@@ -7,6 +7,8 @@ wordMultiple(["c", "b", "a"]) → {"a": false, "b": false, "c": false}
 wordMultiple(["c", "c", "c", "c"]) → {"c": true}
 */
 
+//Solution 1: (2 Loops)
+  
 public Map<String, Boolean> wordMultiple(String[] strings) {
   
   Map<String, Boolean> map = new HashMap<>();
@@ -24,6 +26,26 @@ public Map<String, Boolean> wordMultiple(String[] strings) {
 
   //map.forEach((key, value) -> System.out.println(key + " " + value));
   
+  return map;
+  
+}
+
+//Solution 2: (1 loop)
+
+public Map<String, Boolean> wordMultiple(String[] strings) {
+  
+  Map<String, Boolean> map = new HashMap<>();
+  for(int i = 0; i < strings.length; i++)
+  {
+  Boolean foundDupe = map.containsKey(strings[i]);
+   if(foundDupe){
+    map.put(strings[i], true);
+    }
+    else{
+	  map.put(strings[i], false);
+    }
+  }
+
   return map;
   
 }
